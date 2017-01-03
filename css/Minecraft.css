@@ -1,0 +1,32 @@
+
+html {
+    background-color: aliceblue;
+}
+
+
+#grid {
+
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+.rows:first-child{
+    margin: 0;
+}
+.rows {
+    /*margin-top:-4px;*/
+    line-height:0;
+
+
+
+
+}
+.cols {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-color: blue;
+    border: 1px solid black;
+
+}
