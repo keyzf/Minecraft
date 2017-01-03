@@ -14,6 +14,12 @@ minecraft.createGrid = function() {
         for (var j = 0; j < cols; j++) {
             var numCols = $("<div/>");
             numCols.addClass("cols");
+
+            numCols
+                .data("i",i)
+                .data("j",j);
+
+
             numRows.append(numCols);
 
         }
