@@ -1,6 +1,6 @@
 /**
  * Created by itc_user1 on 1/3/2017.
- */dfdf
+ */
 var minecraft = {};
 minecraft.createGrid = function() {
     var rows = 20;
@@ -98,6 +98,11 @@ minecraft.generateToolBar = function() {
     console.log ("clicked shovel");
     currentTool = 3;
     console.log (currentTool);
+  });
+
+  $( ".cols" ).click(function() {
+    console.log ("clicked square");
+    console.log ("")
   });
 }
 
