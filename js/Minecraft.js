@@ -41,7 +41,7 @@ minecraft.drawBoard = function() {
     }
     $("div").eq(269).css( "background-image", "url('./images/tree.png')");
     $("div").eq(259).css( "background-image", "url('./images/tree.png')");
-    // $("div").eq(249).css( "background-image", "url('./images/tree.png')");
+    $("div").eq(249).css( "background-image", "url('./images/tree.png')");
 
 
 };
