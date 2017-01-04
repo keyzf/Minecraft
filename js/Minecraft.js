@@ -84,126 +84,53 @@ minecraft.drawBoard = function() {
 };
 var currentTool = 0;
 minecraft.generateToolBar = function() {
-  $( "#axe" ).click(function() {
-    console.log ("clicked axe");
-    currentTool = 1;
-    console.log (currentTool);
-  });
-  $( "#pickAxe" ).click(function() {
-    console.log ("clicked pickaxe");
-    currentTool = 2;
-    console.log (currentTool);
-  });
-  $( "#shovel" ).click(function() {
-    console.log ("clicked shovel");
-    currentTool = 3;
-    console.log (currentTool);
-  });
+    $("#axe").click(function () {
+        console.log("clicked axe");
+        currentTool = 1;
+        console.log(currentTool);
+    });
+    $("#pickAxe").click(function () {
+        console.log("clicked pickaxe");
+        currentTool = 2;
+        console.log(currentTool);
+    });
+    $("#Shovel").click(function () {
+        console.log("clicked shovel");
+        currentTool = 3;
+        console.log(currentTool);
+    });
+    // makes divs selectable
+    $(".cols").click(minecraft.ifClicked);
+}
+    //
+    // $(".tree").click(function () {
+    //     ()removeClass(".tree")
+    //     (#block)addClass(".tree")
 
-  $( ".cols" ).click(function() {
-    console.log ("clicked square");
-    console.log ("")
-  });
+minecraft.ifClicked = function() {
+    if (currentTool === 1) {
+        $(".tree").click(function () {
+            $(this).removeClass("tree")
+            $("#block").addClass("tree")
+    })
+    }
 }
 
-// var currentBlockAllowed = 0;
-// minecraft.useToolsOnBoard = function () {
-//   $ ( )
-// }
 
-// minecraft.selectTool = function () {
-//     document.getElementById('#axe').click
-// }
+        // if (divClicked.hasClass("tree")){ //and div with class tree is clicked (currentTool === 1) && (
+    //      //set background image to nothing
+    //     console.log("hi");
+    //     // $(".div").removeClass("tree"); //set background image to nothing
+    // }
+
+
+
+
 
 $(document).ready(function () {
     minecraft.createGrid();
     minecraft.drawBoard();
     minecraft.generateToolBar();
+    minecraft.ifClicked();
 
 });
-
-// minecraft.generateGrid = (function() {
-//     // var grid = document.createElement('div');
-//     // grid.id = "grid";
-//     // // grid.style.width = "1000px";
-//     // // grid.style.height = "500px";
-//     // document.body.appendChild(grid);
-//
-//     var rows = 20;
-//     var cols = 20;
-//     for (var i = 0; i < rows; i++) {
-//         for (var j = 0; j < cols; j++) {
-//             var box = $("<div class='box'></div>");
-//             $("row").append(column);
-//
-// var numCols = document.createElement('div');
-// numCols.classList.add("cols");
-// numCols.id = "div" + j + i;
-// // numCols.addEventListener("mousedown", onClick);
-// // numCols.addEventListener("mouseup", offClick);
-// // // numCols.addEventListener("click", postStamp);
-
-
-// minecraft.init = function() {
-//     minecraft.boxes = $('.box');
-//     minecraft.matrix = [];
-//
-//     for (var i = 0; i < minecraft.matrix.length; i++) {
-//         for (var j = 0; j < minecraft.matrix[i].length; j++) {
-//             minecraft.boxes.eq(i * 100 + j)
-//                 .data("i", i)
-//                 .data("j", j);
-//         }
-//     }
-// }
-// minecraft.clickOnBoxes = function() {
-//     var boxClicked = $(this);
-//     if(minecraft.matrix[boxClicked.data('i')][boxClicked.data('j')] !== "") {
-//         return;
-//     }
-//
-// }
-//
-// }
-//
-//
-// minecraft.startGame = function() {
-//     var button = $('.btn-start-game');
-//     button.on('click', function () {
-//         var clicked = $(something).val();
-// }
-//
-// // minecraft.clickOnBoxes = function {
-// //     }
-// // }
-// minecraft.generateGrid = (function() {
-//     var grid = document.createElement('div');
-//     grid.id = "grid";
-//     // grid.style.width = "1000px";
-//     // grid.style.height = "500px";
-//     document.body.appendChild(grid);
-//6 class with 6 background images
-//     var rows = 20;
-//     var cols = 20;
-//     for (var i = 0; i < rows; i++) {
-//         var numRows = document.createElement('div');
-//         numRows.classList.add("rows");
-//         grid.appendChild(numRows);
-//         for (var j = 0; j < cols; j++) {
-//             var numCols = document.createElement('div');
-//             numCols.classList.add("cols");
-//             numCols.id = "div" + j + i;
-//             // numCols.addEventListener("mousedown", onClick);
-//             // numCols.addEventListener("mouseup", offClick);
-//             // // numCols.addEventListener("click", postStamp);
-//             numRows.appendChild(numCols);
-//
-//         }
-//     }
-// }());
-//
-// //
-// // $(document).ready(function () {
-// // function init() {
-// //
-// // }
