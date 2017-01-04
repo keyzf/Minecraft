@@ -82,16 +82,33 @@ minecraft.drawBoard = function() {
     $("div").eq(133).css( "backgroundColor", "white");
 
 };
-
+var currentTool = 0;
 minecraft.generateToolBar = function() {
-    var tools = $("<div/>");
-    tools.css("background-image", "url('./images/shovel.png')");
-    $("#toolbar").append(tools);
-
-
-    
+  $( "#axe" ).click(function() {
+    console.log ("clicked axe");
+    currentTool = 1;
+    console.log (currentTool);
+  });
+  $( "#pickAxe" ).click(function() {
+    console.log ("clicked pickaxe");
+    currentTool = 2;
+    console.log (currentTool);
+  });
+  $( "#shovel" ).click(function() {
+    console.log ("clicked shovel");
+    currentTool = 3;
+    console.log (currentTool);
+  });
 }
 
+// var currentBlockAllowed = 0;
+// minecraft.useToolsOnBoard = function () {
+//   $ ( )
+// }
+
+// minecraft.selectTool = function () {
+//     document.getElementById('#axe').click
+// }
 
 $(document).ready(function () {
     minecraft.createGrid();
