@@ -17,7 +17,7 @@ minecraft.createGrid = function() {
 
             numCols
                 .data("i",i)
-                .data("j",j);
+                .data("j",j).addClass(i + '-' + j);
 
 
             numRows.append(numCols);
@@ -30,14 +30,16 @@ minecraft.drawBoard = function() {
     var rows = 20;
     var limit = 2/3;
     for (var i=rows; i>(limit*rows); i--) {
-        row = $('div.rows').eq(i);
+        var row = $('div.rows').eq(i);
         for (var j=0; j < row.children().length; j++) {
             $( "div.rows" ).eq(i, j).css( "background-image", "url('./images/dirt.png')");
+
 
         }
     }
     for (var i = 274 ; i <290; i++) {
         $("div").eq(i).css( "background-image", "url('./images/grass.png')");
+
     }
     //tree
     $("div").eq(269).css( "background-image", "url('./images/tree.png')");
@@ -78,25 +80,23 @@ minecraft.drawBoard = function() {
     $("div").eq(113).css( "backgroundColor", "white");
     $("div").eq(114).css( "backgroundColor", "white");
     $("div").eq(133).css( "backgroundColor", "white");
-    
-
-
-
-
 
 };
 
 minecraft.generateToolBar = function() {
-    // var toolBar = $("<div/>");
-    // toolBar.addClass("myToolBar");
-    // $("body").append(toolBar);
-    //appendimages to too bar
+    var tools = $("<div/>");
+    tools.css("background-image", "url('./images/shovel.png')");
+    $("#toolbar").append(tools);
 
+
+    
 }
+
 
 $(document).ready(function () {
     minecraft.createGrid();
     minecraft.drawBoard();
+    minecraft.generateToolBar();
 
 });
 

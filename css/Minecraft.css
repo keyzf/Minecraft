@@ -6,7 +6,6 @@ body {
 
 
 #grid {
-
     display: inline-block;
     vertical-align: top;
     position: relative;
@@ -27,15 +26,15 @@ body {
     width: 40px;
     height: 40px;
     display: inline-block;
-    /*background-color: #33ccff;*/
-    /*border: 1px solid blue;*/
+
 
 
 }
-#myToolBar {
-    display: inline-block;
+#toolBar {
     width: 100px;
-    height: 100px;
+    height: 1000px;
     background-color: black;
+    display: inline-block;
+    margin-left: 2%;
 
 }
