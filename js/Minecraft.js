@@ -39,9 +39,49 @@ minecraft.drawBoard = function() {
     for (var i = 274 ; i <290; i++) {
         $("div").eq(i).css( "background-image", "url('./images/grass.png')");
     }
+    //tree
     $("div").eq(269).css( "background-image", "url('./images/tree.png')");
-    $("div").eq(259).css( "background-image", "url('./images/tree.png')");
-    $("div").eq(249).css( "background-image", "url('./images/tree.png')");
+    $("div").eq(248).css( "background-image", "url('./images/tree.png')");
+    $("div").eq(227).css( "background-image", "url('./images/tree.png')");
+    $("div").eq(206).css( "background-image", "url('./images/leaf.png')");
+    $("div").eq(205).css( "background-image", "url('./images/leaf.png')");
+    $("div").eq(207).css( "background-image", "url('./images/leaf.png')");
+    $("div").eq(186).css( "background-image", "url('./images/leaf.png')");
+    $("div").eq(185).css( "background-image", "url('./images/leaf.png')");
+    $("div").eq(184).css( "background-image", "url('./images/leaf.png')");
+    $("div").eq(165).css( "background-image", "url('./images/leaf.png')");
+    $("div").eq(164).css( "background-image", "url('./images/leaf.png')");
+    $("div").eq(163).css( "background-image", "url('./images/leaf.png')");
+
+    //rocks
+    $("div").eq(273).css( "background-image", "url('./images/rock.png')");
+    $("div").eq(267).css( "background-image", "url('./images/rock.png')");
+    $("div").eq(266).css( "background-image", "url('./images/rock.png')");
+    //bush
+
+    $("div").eq(257).css( "background-image", "url('./images/leaf.png')");
+    $("div").eq(258).css( "background-image", "url('./images/leaf.png')");
+    $("div").eq(259).css( "background-image", "url('./images/leaf.png')");
+    $("div").eq(237).css( "background-image", "url('./images/leaf.png')");
+    //cloud
+    $("div").eq(68).css( "backgroundColor", "white");
+    $("div").eq(88).css( "backgroundColor", "white");
+    $("div").eq(89).css( "backgroundColor", "white");
+    $("div").eq(90).css( "backgroundColor", "white");
+    $("div").eq(92).css( "backgroundColor", "white");
+    $("div").eq(93).css( "backgroundColor", "white");
+    $("div").eq(108).css( "backgroundColor", "white");
+    $("div").eq(109).css( "backgroundColor", "white");
+    $("div").eq(110).css( "backgroundColor", "white");
+    $("div").eq(111).css( "backgroundColor", "white");
+    $("div").eq(112).css( "backgroundColor", "white");
+    $("div").eq(113).css( "backgroundColor", "white");
+    $("div").eq(114).css( "backgroundColor", "white");
+    $("div").eq(133).css( "backgroundColor", "white");
+    
+
+
+
 
 
 };

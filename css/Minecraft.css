@@ -1,6 +1,7 @@
 
 body {
     margin-left: 10%;
+
 }
 
 
@@ -9,6 +10,7 @@ body {
     display: inline-block;
     vertical-align: top;
     position: relative;
+    background-color: #99e6ff;
 }
 
 .rows:first-child{
@@ -26,7 +28,7 @@ body {
     height: 40px;
     display: inline-block;
     /*background-color: #33ccff;*/
-    border: 1px solid blue;
+    /*border: 1px solid blue;*/
 
 
 }
