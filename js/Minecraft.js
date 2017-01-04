@@ -32,54 +32,54 @@ minecraft.drawBoard = function() {
     for (var i=rows; i>(limit*rows); i--) {
         var row = $('div.rows').eq(i);
         for (var j=0; j < row.children().length; j++) {
-            $( "div.rows" ).eq(i, j).css( "background-image", "url('./images/dirt.png')");
+            $( "div.rows" ).eq(i, j).addClass("dirt");
 
 
         }
     }
     for (var i = 274 ; i <290; i++) {
-        $("div").eq(i).css( "background-image", "url('./images/grass.png')");
+        $("div").eq(i).addClass("grass");
 
     }
     //tree
-    $("div").eq(269).css( "background-image", "url('./images/tree.png')");
-    $("div").eq(248).css( "background-image", "url('./images/tree.png')");
-    $("div").eq(227).css( "background-image", "url('./images/tree.png')");
-    $("div").eq(206).css( "background-image", "url('./images/leaf.png')");
-    $("div").eq(205).css( "background-image", "url('./images/leaf.png')");
-    $("div").eq(207).css( "background-image", "url('./images/leaf.png')");
-    $("div").eq(186).css( "background-image", "url('./images/leaf.png')");
-    $("div").eq(185).css( "background-image", "url('./images/leaf.png')");
-    $("div").eq(184).css( "background-image", "url('./images/leaf.png')");
-    $("div").eq(165).css( "background-image", "url('./images/leaf.png')");
-    $("div").eq(164).css( "background-image", "url('./images/leaf.png')");
-    $("div").eq(163).css( "background-image", "url('./images/leaf.png')");
+    $("div").eq(269).addClass("tree");
+    $("div").eq(248).addClass("tree");
+    $("div").eq(227).addClass("tree");
+    $("div").eq(206).addClass("leaves");
+    $("div").eq(205).addClass("leaves");
+    $("div").eq(207).addClass("leaves");
+    $("div").eq(186).addClass("leaves");
+    $("div").eq(185).addClass("leaves");
+    $("div").eq(184).addClass("leaves");
+    $("div").eq(165).addClass("leaves");
+    $("div").eq(164).addClass("leaves");
+    $("div").eq(163).addClass("leaves");
 
     //rocks
-    $("div").eq(273).css( "background-image", "url('./images/rock.png')");
-    $("div").eq(267).css( "background-image", "url('./images/rock.png')");
-    $("div").eq(266).css( "background-image", "url('./images/rock.png')");
+    $("div").eq(273).addClass("rock");
+    $("div").eq(267).addClass("rock");
+    $("div").eq(266).addClass("rock");
     //bush
 
-    $("div").eq(257).css( "background-image", "url('./images/leaf.png')");
-    $("div").eq(258).css( "background-image", "url('./images/leaf.png')");
-    $("div").eq(259).css( "background-image", "url('./images/leaf.png')");
-    $("div").eq(237).css( "background-image", "url('./images/leaf.png')");
+    $("div").eq(257).addClass("leaves");
+    $("div").eq(258).addClass("leaves");
+    $("div").eq(259).addClass("leaves");
+    $("div").eq(237).addClass("leaves");
     //cloud
-    $("div").eq(68).css( "backgroundColor", "white");
-    $("div").eq(88).css( "backgroundColor", "white");
-    $("div").eq(89).css( "backgroundColor", "white");
-    $("div").eq(90).css( "backgroundColor", "white");
-    $("div").eq(92).css( "backgroundColor", "white");
-    $("div").eq(93).css( "backgroundColor", "white");
-    $("div").eq(108).css( "backgroundColor", "white");
-    $("div").eq(109).css( "backgroundColor", "white");
-    $("div").eq(110).css( "backgroundColor", "white");
-    $("div").eq(111).css( "backgroundColor", "white");
-    $("div").eq(112).css( "backgroundColor", "white");
-    $("div").eq(113).css( "backgroundColor", "white");
-    $("div").eq(114).css( "backgroundColor", "white");
-    $("div").eq(133).css( "backgroundColor", "white");
+    $("div").eq(68).addClass("cloud");
+    $("div").eq(88).addClass("cloud");
+    $("div").eq(89).addClass("cloud");
+    $("div").eq(90).addClass("cloud");
+    $("div").eq(92).addClass("cloud");
+    $("div").eq(93).addClass("cloud");
+    $("div").eq(108).addClass("cloud");
+    $("div").eq(109).addClass("cloud");
+    $("div").eq(110).addClass("cloud");
+    $("div").eq(111).addClass("cloud");
+    $("div").eq(112).addClass("cloud");
+    $("div").eq(113).addClass("cloud");
+    $("div").eq(114).addClass("cloud");
+    $("div").eq(133).addClass("cloud");
 
 };
 var currentTool = 0;

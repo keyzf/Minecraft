@@ -65,3 +65,22 @@ p {
   margin-bottom: 5px;
   border: white solid 1px;
 }
+
+.grass {
+    background-image: url('../images/grass.png');
+}
+.dirt {
+    background-image: url('../images/dirt.png');
+}
+.tree {
+    background-image: url('../images/tree.png');
+}
+.rock {
+    background-image: url('../images/rock.png');
+}
+.leaves {
+    background-image: url('../images/leaf.png');
+}
+.cloud {
+    background-color: white;
+}
