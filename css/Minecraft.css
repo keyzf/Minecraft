@@ -87,10 +87,10 @@ p {
     background-image: url('../images/tree.png');
 }
 .rock {
-    background-image: url('../images/rock.png');
+    background-image: url('https://hydra-media.cursecdn.com/minecraft.gamepedia.com/thumb/b/b1/CobblestoneTex.png/120px-CobblestoneTex.png?version=264467d55c20ccd4c1aa7f86c1be4d82');
 }
 .leaves {
-    background-image: url('../images/leaf.png');
+    background-image: url('http://www.laboratory424.com/files/images/build/mcpp/panels/leaves-th.png');
 }
 .cloud {
     background-color: white;

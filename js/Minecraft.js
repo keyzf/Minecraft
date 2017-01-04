@@ -99,7 +99,7 @@ minecraft.generateToolBar = function() {
         currentTool = 2;
         console.log(currentTool);
     });
-    $("#Shovel").click(function () {
+    $("#shovel").click(function () {
         console.log("clicked shovel");
         currentTool = 3;
         console.log(currentTool);
@@ -113,11 +113,27 @@ minecraft.generateToolBar = function() {
     //     (#block)addClass(".tree")
 
 minecraft.ifClicked = function() {
-    if (currentTool === 1) {
+    if (currentTool === 1) { //buggy in that you have to click on trunk of tree first
         $(".tree").click(function () {
             $(this).removeClass("tree")
             $("#block").addClass("tree")
-    })
+            $(".leaves").click(function () {
+                $(this).removeClass("leaves")
+                $("#block").addClass("leaves")
+            })
+        })
+    }
+    if (currentTool === 2) {
+        $(".rock").click(function () {
+            $(this).removeClass("rock")
+            $("#block").addClass("rock")
+        })
+    }
+    if (currentTool === 3) {
+        $(".grass").click(function () { //add somewhere at i or j?
+            $(this).removeClass("grass")
+            $("#block").addClass("grass")
+        })
     }
 }
 
