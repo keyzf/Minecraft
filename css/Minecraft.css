@@ -31,10 +31,29 @@ body {
 
 }
 #toolBar {
+    position: absolute;
     width: 100px;
     height: 1000px;
     background-color: black;
     display: inline-block;
     margin-left: 2%;
 
+}
+
+.tool {
+  /*background-color: blue;*/
+  position:relative;
+  margin-left: 30%;
+  color: white;
+  width: 40px;
+  height: 40px;
+  transform: translateY(50%);
+}
+.tool:hover {
+  background-color: blue;
+}
+
+p {
+  color:white;
+  text-align: center;
 }
