@@ -36,7 +36,11 @@ minecraft.drawBoard = function() {
 
         }
     }
+    for (var i = 274 ; i <290; i++) {
+        $("div").eq(i).css( "background-image", "url('./images/grass.png')");
 
+    }
+    //$( "div.rows" ).eq( 280).css( "background-image", "url('./images/grass.png')");
 
     // $( "div" ).eq( 2 ).css( "background-image", "url('./images/dirt.png')");
 
