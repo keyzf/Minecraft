@@ -38,11 +38,11 @@ minecraft.drawBoard = function() {
     }
     for (var i = 274 ; i <290; i++) {
         $("div").eq(i).css( "background-image", "url('./images/grass.png')");
-
     }
-    //$( "div.rows" ).eq( 280).css( "background-image", "url('./images/grass.png')");
+    $("div").eq(269).css( "background-image", "url('./images/tree.png')");
+    // $("div").eq(259).css( "background-image", "url('./images/tree.png')");
+    // $("div").eq(249).css( "background-image", "url('./images/tree.png')");
 
-    // $( "div" ).eq( 2 ).css( "background-image", "url('./images/dirt.png')");
 
 };
 
@@ -74,12 +74,12 @@ $(document).ready(function () {
 //             var box = $("<div class='box'></div>");
 //             $("row").append(column);
 //
-            // var numCols = document.createElement('div');
-            // numCols.classList.add("cols");
-            // numCols.id = "div" + j + i;
-            // // numCols.addEventListener("mousedown", onClick);
-            // // numCols.addEventListener("mouseup", offClick);
-            // // // numCols.addEventListener("click", postStamp);
+// var numCols = document.createElement('div');
+// numCols.classList.add("cols");
+// numCols.id = "div" + j + i;
+// // numCols.addEventListener("mousedown", onClick);
+// // numCols.addEventListener("mouseup", offClick);
+// // // numCols.addEventListener("click", postStamp);
 
 
 // minecraft.init = function() {
