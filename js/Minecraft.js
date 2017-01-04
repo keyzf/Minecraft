@@ -26,11 +26,35 @@ minecraft.createGrid = function() {
     }
 };
 
-minecraft.createGrid();
-// function init() {
-//     minecraft.createGrid();
-// }
-// init();
+minecraft.drawBoard = function() {
+    var rows = 20;
+    var limit = 2/3;
+    for (var i=rows; i>(limit*rows); i--) {
+        row = $('div.rows').eq(i);
+        for (var j=0; j < row.children().length; j++) {
+            $( "div.rows" ).eq(i, j).css( "background-image", "url('./images/dirt.png')");
+
+        }
+    }
+
+
+    // $( "div" ).eq( 2 ).css( "background-image", "url('./images/dirt.png')");
+
+};
+
+minecraft.generateToolBar = function() {
+    // var toolBar = $("<div/>");
+    // toolBar.addClass("myToolBar");
+    // $("body").append(toolBar);
+    //appendimages to too bar
+
+}
+
+$(document).ready(function () {
+    minecraft.createGrid();
+    minecraft.drawBoard();
+
+});
 
 // minecraft.generateGrid = (function() {
 //     // var grid = document.createElement('div');
