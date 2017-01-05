@@ -10,6 +10,7 @@ var minecraft = {};
 minecraft.AXE = 1;
 minecraft.PICKAXE = 2;
 minecraft.SHOVEL = 3;
+minecraft.currentClass;
 minecraft.createGrid = function() {
     var rows = 20;
     var cols = 20;
@@ -128,24 +129,36 @@ minecraft.generateToolBar = function() {
 minecraft.worldClicked = function(e) {
     if (minecraft.AXE === 1 && $(this).hasClass("tree")) {
         $(this).removeClass("tree")
+        $("#block").removeClass(minecraft.currentClass)
         $("#block").addClass("tree")
+        minecraft.currentClass = "tree";
         }
+    if (minecraft.AXE === 1 && $(this).hasClass("leaves")) {
+        $(this).removeClass("leaves")
+        $("#block").removeClass(minecraft.currentClass)
+        $("#block").addClass("leaves")
+        minecraft.currentClass = "leaves";
+    }
 
     if (minecraft.PICKAXE === 2 && $(this).hasClass("rocks")) {
         $(this).removeClass("rocks")
+        $("#block").removeClass(minecraft.currentClass)
         $("#block").addClass("rocks")
+        minecraft.currentClass = "rocks";
     }
     if (minecraft.SHOVEL === 3 && $(this).hasClass("dirt")) {
         $(this).removeClass("dirt")
+        $("#block").removeClass(minecraft.currentClass)
         $("#block").addClass("dirt")
+        minecraft.currentClass = "dirt";
     }
 
-    $("#block").click(function () {
-        console.log("hi");
-        //remove current class $(this).removeClass("current")
-        //add it to wherever is clicked on cols
-        // $(".cols").addClass(current); could do with if statements but that wouldnt be very efficient
-    })
+    // $("#block").click(function () {
+    //     console.log("hi");
+    //     //remove current class $(this).removeClass("current")
+    //     //add it to wherever is clicked on cols
+    //     // $(".cols").addClass(current); could do with if statements but that wouldnt be very efficient
+    // })
 
 
     //making it possible to move last placed material from block
