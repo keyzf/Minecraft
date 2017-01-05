@@ -33,16 +33,29 @@ minecraft.createGrid = function() {
 };
 
 minecraft.drawBoard = function() {
+    // var rows = 20;
+    // // var limit = 2/3;
+    // for (var i=rows; i>=14 ; i--) {
+    //     for (var j=0; j <= rows; j++) {
+    //         $("div").eq(i*rows + j).addClass("dirt");
+    //
+    //
+    //     }
+    // }
     var rows = 20;
     // var limit = 2/3;
-    for (var i=rows; i>=14 ; i--) {
-        for (var j=0; j <= rows; j++) {
-            $("div").eq(i*rows + j).addClass("dirt");
+    for (var i=280; i<400 ; i++) {
+            $(".cols").eq(i).addClass("dirt");
 
 
         }
+    // var limit = 2/3;
+    for (var i=260; i<280 ; i++) {
+        $(".cols").eq(i).addClass("grass");
+
+
     }
-    //
+    // }
     //
     // for (var i=14; i<21 ; i++) {
     //     // var row = $('div.rows').eq(i);
@@ -115,9 +128,13 @@ minecraft.generateToolBar = function() {
         minecraft.currentTool = 3;
         console.log(minecraft.currentTool);
     });
+    $("#block").click(function () {
+        minecraft.currentTool = 4;
+        console.log(minecraft.currentTool);
+    });
     // makes divs selectable
     $(".cols").click(minecraft.worldClicked);
-    $(".cols").click(minecraft.build);
+
 }
     //
     // $(".tree").click(function () {
@@ -127,6 +144,7 @@ minecraft.generateToolBar = function() {
 //if current tool is axe and tree is clicked on--- do this
 
 minecraft.worldClicked = function(e) {
+    console.log(minecraft.currentClass);
     if (minecraft.currentTool === 1 && $(this).hasClass("tree")) {
         $(this).removeClass("tree")
         $("#block").removeClass(minecraft.currentClass)
@@ -153,7 +171,13 @@ minecraft.worldClicked = function(e) {
         $("#block").addClass("dirt")
         minecraft.currentClass = "dirt";
     }
+    if (minecraft.currentTool === 4 ) {
+        $(this).addClass(minecraft.currentClass)
+        console.log(minecraft.currentClass);
+        console.log("in");
+        console.log($(this));
 
+    }
 
 }
 //help with this-if you click on canvas and no tools are selected, run this function
@@ -162,6 +186,7 @@ minecraft.worldClicked = function(e) {
 //theres a gap here becasue they cancel each other out
 
 minecraft.build = function(e) {
+    //if block clicked on, run this code
     if ($(this).hasClass(".tree") || ($(this).hasClass("leaves")) || ($(this).hasClass("rocks")) || ($(this).hasClass("dirt")) || ($(this).hasClass("grass"))) {
         console.log("hi");
         return;
