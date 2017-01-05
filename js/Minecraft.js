@@ -33,43 +33,16 @@ minecraft.createGrid = function() {
 };
 
 minecraft.drawBoard = function() {
-    // var rows = 20;
-    // // var limit = 2/3;
-    // for (var i=rows; i>=14 ; i--) {
-    //     for (var j=0; j <= rows; j++) {
-    //         $("div").eq(i*rows + j).addClass("dirt");
-    //
-    //
-    //     }
-    // }
     var rows = 20;
     // var limit = 2/3;
     for (var i=280; i<400 ; i++) {
             $(".cols").eq(i).addClass("dirt");
-
-
         }
-    // var limit = 2/3;
+
     for (var i=260; i<280 ; i++) {
         $(".cols").eq(i).addClass("grass");
-
-
     }
-    // }
-    //
-    // for (var i=14; i<21 ; i++) {
-    //     // var row = $('div.rows').eq(i);
-    //     for (var j=0; j < 20; j++) {
-    //         $("div").eq(i*20 + j).addClass("dirt");
-    //
-    //
-    //     }
-    // }
-    // for (var i = 275 ; i <295; i++) {
-    //     $("div").eq(i).addClass("grass");
-    //
-    // }
-    //tree
+
     $("div").eq(269).addClass("tree");
     $("div").eq(248).addClass("tree");
     $("div").eq(227).addClass("tree");
@@ -114,17 +87,14 @@ minecraft.drawBoard = function() {
 minecraft.generateToolBar = function() {
     console.log(minecraft.currentTool)
     $("#axe").click(function () {
-        console.log("clicked axe");
         minecraft.currentTool = 1;
         console.log(minecraft.currentTool);
     });
     $("#pickAxe").click(function () {
-        console.log("clicked pickaxe");
         minecraft.currentTool = 2;
         console.log(minecraft.currentTool);
     });
     $("#shovel").click(function () {
-        console.log("clicked shovel");
         minecraft.currentTool = 3;
         console.log(minecraft.currentTool);
     });
@@ -175,36 +145,16 @@ minecraft.worldClicked = function(e) {
     if (minecraft.currentTool === 4 && !($(this).hasClass("dirt") || $(this).hasClass("grass") || $(this).hasClass("leaves") || $(this).hasClass("rocks") || $(this).hasClass("tree"))) { //bug here
         $(this).addClass(minecraft.currentClass)
         $("#block").removeClass(minecraft.currentClass)
-        // $("#block").addClass("empty")
-        // console.log(minecraft.currentClass)
-        // console.log($(this));
+        minecraft.currentClass = 0;
 
     }
-
 }
-//help with this-if you click on canvas and no tools are selected, run this function
-
-
-//theres a gap here becasue they cancel each other out
-
-// minecraft.build = function(e) {
-//     //if block clicked on, run this code
-//     if ($(this).hasClass(".tree") || ($(this).hasClass("leaves")) || ($(this).hasClass("rocks")) || ($(this).hasClass("dirt")) || ($(this).hasClass("grass"))) {
-//         console.log("hi");
-//         return;
-//     }
-//     else {
-//         $(this).addClass(minecraft.currentClass)
-//         minecraft.currentClass = "";
-//
-//     }
-// }
 
 $(document).ready(function () {
     minecraft.createGrid();
     minecraft.drawBoard();
     minecraft.generateToolBar();
     minecraft.worldClicked();
-    // minecraft.build();
+
 
 });
