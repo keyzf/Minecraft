@@ -1,11 +1,12 @@
 /**
  * Created by itc_user1 on 1/3/2017.
  */
-
+ $("#grid, #toolBar").hide();
+ 
  $("#startButton").click(function () {
-     $("#splashScreen").hide();
-     $("#grid, #toolBar").show();
- });
+      $("#startButton, .backgroundImage").hide();
+      $("#grid, #toolBar").show();
+  });
 var minecraft = {};
 minecraft.currentTool = 0;
 minecraft.currentClass;

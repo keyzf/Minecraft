@@ -7,15 +7,15 @@ body {
 
 
 }
-/*.backgroundImage {*/
-  /*background-image: url('../images/logo.png');*/
-  /*background-repeat: no-repeat;*/
-  /*background-size: contain;*/
-  /*height: 700px;*/
-/*}*/
-#startButton {
-margin-left: 50%;
+.backgroundImage {
+  text-align: center;
+  position: relative;
+  background-image: url('../images/logo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 700px;
 }
+
 
 
 #grid {
@@ -54,7 +54,6 @@ margin-left: 50%;
 }
 
 .tool {
-  /*background-color: blue;*/
   position:relative;
   margin-left: 30%;
   color: white;
@@ -70,13 +69,30 @@ p {
   color:white;
   text-align: center;
 }
-
+#startButton{
+  position: relative;
+  margin-left: auto;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  /*display: inline-block;*/
+  font-size: 16px;
+}
 #block {
   height: 40px;
   width: 40px;
   margin-top: 40px;
   margin-bottom: 5px;
   border: white solid 1px;
+}
+#block:hover {
+  border: gray solid 1px;
+}
+#block:active {
+  border: blue solid 1px;
 }
 
 .grass {
