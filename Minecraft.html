@@ -6,18 +6,15 @@
     <link rel="stylesheet" type="text/css" href="./css/Minecraft.css">
 </head>
 
-<body background-image: "../images.logo.png">
-  <div id="splashScreen">
-    <div class="backgroundImage"></div>
-  <input id="startButton" type="button" value="Start"/>
-  </div>
-<div id="grid"style="display: none;"></div>
-<div id="toolBar" style="display: none;">
+<body>
+<div id="grid"></div>
+<div id="toolBar">
   <img class="tool" id="axe" src ="./images/axe.png"><p>Axe</p></img>
   <img class="tool" id="pickAxe" src ="./images/pickaxe.png"><p>Pickaxe</p></img>
   <img class="tool" id="shovel" src ="./images/shovel.png"><p>Shovel</p></img>
   <img class="tool" id="block" src =""><p>Current Block</p></img>
     <!-- id block needs to be dynamic (the image and the name? maybe just the image) -->
+
 </div>
 <script src="./js/jquery-3.0.0.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -25,7 +22,3 @@
 
 </body>
 </html>
-
-
-
-<canvas id="GameCanvas" style="display: none;">Game Stuff</canvas>
