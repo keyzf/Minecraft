@@ -2,17 +2,17 @@
 body {
   /*margin-left: 10%;*/
 /*background-image: url("../images/logo.png");*/
-background-repeat: no-repeat;
-background-size: cover;
+/*background-repeat: no-repeat;*/
+/*background-size: cover;*/
 
 
 }
-.backgroundImage {
-  background-image: url('../images/logo.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 700px;
-}
+/*.backgroundImage {*/
+  /*background-image: url('../images/logo.png');*/
+  /*background-repeat: no-repeat;*/
+  /*background-size: contain;*/
+  /*height: 700px;*/
+/*}*/
 #startButton {
 margin-left: 50%;
 }

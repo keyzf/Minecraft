@@ -94,20 +94,20 @@ minecraft.drawBoard = function() {
     $("div").eq(259).addClass("leaves");
     $("div").eq(237).addClass("leaves");
     //cloud
-    $("div").eq(68).addClass("cloud");
-    $("div").eq(88).addClass("cloud");
+    $("div").eq(69).addClass("cloud");
     $("div").eq(89).addClass("cloud");
     $("div").eq(90).addClass("cloud");
-    $("div").eq(92).addClass("cloud");
+    $("div").eq(91).addClass("cloud");
     $("div").eq(93).addClass("cloud");
-    $("div").eq(108).addClass("cloud");
+    $("div").eq(94).addClass("cloud");
     $("div").eq(109).addClass("cloud");
     $("div").eq(110).addClass("cloud");
     $("div").eq(111).addClass("cloud");
     $("div").eq(112).addClass("cloud");
     $("div").eq(113).addClass("cloud");
     $("div").eq(114).addClass("cloud");
-    $("div").eq(133).addClass("cloud");
+    $("div").eq(115).addClass("cloud");
+    $("div").eq(134).addClass("cloud");
 
 };
 
@@ -132,16 +132,9 @@ minecraft.generateToolBar = function() {
         minecraft.currentTool = 4;
         console.log(minecraft.currentTool);
     });
-    // makes divs selectable
     $(".cols").click(minecraft.worldClicked);
-
 }
-    //
-    // $(".tree").click(function () {
-    //     ()removeClass(".tree")
-    //     (#block)addClass(".tree")
 
-//if current tool is axe and tree is clicked on--- do this
 
 minecraft.worldClicked = function(e) {
     console.log(minecraft.currentClass);
@@ -170,12 +163,21 @@ minecraft.worldClicked = function(e) {
         $("#block").removeClass(minecraft.currentClass)
         $("#block").addClass("dirt")
         minecraft.currentClass = "dirt";
+
     }
-    if (minecraft.currentTool === 4 ) {
+    if (minecraft.currentTool === 3 && $(this).hasClass("grass")) {
+        $(this).removeClass("grass")
+        $("#block").removeClass(minecraft.currentClass)
+        $("#block").addClass("grass")
+        minecraft.currentClass = "grass";
+    }
+
+    if (minecraft.currentTool === 4 && !($(this).hasClass("dirt") || $(this).hasClass("grass") || $(this).hasClass("leaves") || $(this).hasClass("rocks") || $(this).hasClass("tree"))) { //bug here
         $(this).addClass(minecraft.currentClass)
-        console.log(minecraft.currentClass);
-        console.log("in");
-        console.log($(this));
+        $("#block").removeClass(minecraft.currentClass)
+        // $("#block").addClass("empty")
+        // console.log(minecraft.currentClass)
+        // console.log($(this));
 
     }
 
@@ -185,24 +187,24 @@ minecraft.worldClicked = function(e) {
 
 //theres a gap here becasue they cancel each other out
 
-minecraft.build = function(e) {
-    //if block clicked on, run this code
-    if ($(this).hasClass(".tree") || ($(this).hasClass("leaves")) || ($(this).hasClass("rocks")) || ($(this).hasClass("dirt")) || ($(this).hasClass("grass"))) {
-        console.log("hi");
-        return;
-    }
-    else {
-        $(this).addClass(minecraft.currentClass)
-        minecraft.currentClass = "";
-
-    }
-}
+// minecraft.build = function(e) {
+//     //if block clicked on, run this code
+//     if ($(this).hasClass(".tree") || ($(this).hasClass("leaves")) || ($(this).hasClass("rocks")) || ($(this).hasClass("dirt")) || ($(this).hasClass("grass"))) {
+//         console.log("hi");
+//         return;
+//     }
+//     else {
+//         $(this).addClass(minecraft.currentClass)
+//         minecraft.currentClass = "";
+//
+//     }
+// }
 
 $(document).ready(function () {
     minecraft.createGrid();
     minecraft.drawBoard();
     minecraft.generateToolBar();
     minecraft.worldClicked();
-    minecraft.build();
+    // minecraft.build();
 
 });
