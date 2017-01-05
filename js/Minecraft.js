@@ -1,6 +1,11 @@
 /**
  * Created by itc_user1 on 1/3/2017.
  */
+
+ $("#startButton").click(function () {
+     $("#splashScreen").hide();
+     $("#grid, #toolBar").show();
+ });
 var minecraft = {};
 minecraft.createGrid = function() {
     var rows = 20;
