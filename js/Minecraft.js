@@ -97,7 +97,7 @@ minecraft.drawBoard = function() {
     $("div").eq(133).addClass("cloud");
 
 };
-// var currentTool = 0;
+
 minecraft.generateToolBar = function() {
     console.log(minecraft.currentTool)
     $("#axe").click(function () {
@@ -117,6 +117,7 @@ minecraft.generateToolBar = function() {
     });
     // makes divs selectable
     $(".cols").click(minecraft.worldClicked);
+    $(".cols").click(minecraft.build);
 }
     //
     // $(".tree").click(function () {
@@ -131,14 +132,12 @@ minecraft.worldClicked = function(e) {
         $("#block").removeClass(minecraft.currentClass)
         $("#block").addClass("tree")
         minecraft.currentClass = "tree";
-        minecraft.currentTool = 0;
     }
     if (minecraft.currentTool === 1 && $(this).hasClass("leaves")) {
         $(this).removeClass("leaves")
         $("#block").removeClass(minecraft.currentClass)
         $("#block").addClass("leaves")
         minecraft.currentClass = "leaves";
-        minecraft.currentTool = 0;
     }
 
     if (minecraft.currentTool === 2 && $(this).hasClass("rocks")) {
@@ -146,7 +145,6 @@ minecraft.worldClicked = function(e) {
         $("#block").removeClass(minecraft.currentClass)
         $("#block").addClass("rocks")
         minecraft.currentClass = "rocks";
-        minecraft.currentTool = 0;
 
     }
     if (minecraft.currentTool === 3 && $(this).hasClass("dirt")) {
@@ -154,18 +152,17 @@ minecraft.worldClicked = function(e) {
         $("#block").removeClass(minecraft.currentClass)
         $("#block").addClass("dirt")
         minecraft.currentClass = "dirt";
-        minecraft.currentTool = 0;
     }
+
 
 }
 //help with this-if you click on canvas and no tools are selected, run this function
-if (minecraft.currentTool === 0) {
-    $(".cols").click(minecraft.build);
-}
 
+
+//theres a gap here becasue they cancel each other out
 
 minecraft.build = function(e) {
-    if ($(this).hasClass("tree") || ($(this).hasClass("leaves")) || ($(this).hasClass("rocks")) || ($(this).hasClass("dirt")) || ($(this).hasClass("grass"))) {
+    if ($(this).hasClass(".tree") || ($(this).hasClass("leaves")) || ($(this).hasClass("rocks")) || ($(this).hasClass("dirt")) || ($(this).hasClass("grass"))) {
         console.log("hi");
         return;
     }
@@ -175,10 +172,6 @@ minecraft.build = function(e) {
 
     }
 }
-
-
-
-
 
 $(document).ready(function () {
     minecraft.createGrid();
