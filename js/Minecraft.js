@@ -7,9 +7,7 @@
      $("#grid, #toolBar").show();
  });
 var minecraft = {};
-minecraft.AXE = 1;
-minecraft.PICKAXE = 2;
-minecraft.SHOVEL = 3;
+minecraft.currentTool = 0;
 minecraft.currentClass;
 minecraft.createGrid = function() {
     var rows = 20;
@@ -37,7 +35,7 @@ minecraft.createGrid = function() {
 minecraft.drawBoard = function() {
     var rows = 20;
     // var limit = 2/3;
-    for (var i=14; i<=rows ; i++) {
+    for (var i=rows; i>=14 ; i--) {
         for (var j=0; j <= rows; j++) {
             $("div").eq(i*rows + j).addClass("dirt");
 
@@ -101,20 +99,21 @@ minecraft.drawBoard = function() {
 };
 // var currentTool = 0;
 minecraft.generateToolBar = function() {
+    console.log(minecraft.currentTool)
     $("#axe").click(function () {
         console.log("clicked axe");
-        minecraft.AXE = 1;
-        console.log("hello");
+        minecraft.currentTool = 1;
+        console.log(minecraft.currentTool);
     });
     $("#pickAxe").click(function () {
         console.log("clicked pickaxe");
-        minecraft.PICKAXE = 2;
-        console.log("hi");
+        minecraft.currentTool = 2;
+        console.log(minecraft.currentTool);
     });
     $("#shovel").click(function () {
         console.log("clicked shovel");
-        minecraft.SHOVEL = 3;
-        console.log("hola");
+        minecraft.currentTool = 3;
+        console.log(minecraft.currentTool);
     });
     // makes divs selectable
     $(".cols").click(minecraft.worldClicked);
@@ -127,42 +126,54 @@ minecraft.generateToolBar = function() {
 //if current tool is axe and tree is clicked on--- do this
 
 minecraft.worldClicked = function(e) {
-    if (minecraft.AXE === 1 && $(this).hasClass("tree")) {
+    if (minecraft.currentTool === 1 && $(this).hasClass("tree")) {
         $(this).removeClass("tree")
         $("#block").removeClass(minecraft.currentClass)
         $("#block").addClass("tree")
         minecraft.currentClass = "tree";
-        }
-    if (minecraft.AXE === 1 && $(this).hasClass("leaves")) {
+        minecraft.currentTool = 0;
+    }
+    if (minecraft.currentTool === 1 && $(this).hasClass("leaves")) {
         $(this).removeClass("leaves")
         $("#block").removeClass(minecraft.currentClass)
         $("#block").addClass("leaves")
         minecraft.currentClass = "leaves";
+        minecraft.currentTool = 0;
     }
 
-    if (minecraft.PICKAXE === 2 && $(this).hasClass("rocks")) {
+    if (minecraft.currentTool === 2 && $(this).hasClass("rocks")) {
         $(this).removeClass("rocks")
         $("#block").removeClass(minecraft.currentClass)
         $("#block").addClass("rocks")
         minecraft.currentClass = "rocks";
+        minecraft.currentTool = 0;
+
     }
-    if (minecraft.SHOVEL === 3 && $(this).hasClass("dirt")) {
+    if (minecraft.currentTool === 3 && $(this).hasClass("dirt")) {
         $(this).removeClass("dirt")
         $("#block").removeClass(minecraft.currentClass)
         $("#block").addClass("dirt")
         minecraft.currentClass = "dirt";
+        minecraft.currentTool = 0;
     }
 
-    // $("#block").click(function () {
-    //     console.log("hi");
-    //     //remove current class $(this).removeClass("current")
-    //     //add it to wherever is clicked on cols
-    //     // $(".cols").addClass(current); could do with if statements but that wouldnt be very efficient
-    // })
+}
+//help with this-if you click on canvas and no tools are selected, run this function
+if (minecraft.currentTool === 0) {
+    $(".cols").click(minecraft.build);
+}
 
 
-    //making it possible to move last placed material from block
+minecraft.build = function(e) {
+    if ($(this).hasClass("tree") || ($(this).hasClass("leaves")) || ($(this).hasClass("rocks")) || ($(this).hasClass("dirt")) || ($(this).hasClass("grass"))) {
+        console.log("hi");
+        return;
+    }
+    else {
+        $(this).addClass(minecraft.currentClass)
+        minecraft.currentClass = "";
 
+    }
 }
 
 
@@ -174,5 +185,6 @@ $(document).ready(function () {
     minecraft.drawBoard();
     minecraft.generateToolBar();
     minecraft.worldClicked();
+    minecraft.build();
 
 });
