@@ -7,6 +7,9 @@
      $("#grid, #toolBar").show();
  });
 var minecraft = {};
+minecraft.AXE = 1;
+minecraft.PICKAXE = 2;
+minecraft.SHOVEL = 3;
 minecraft.createGrid = function() {
     var rows = 20;
     var cols = 20;
@@ -24,7 +27,6 @@ minecraft.createGrid = function() {
                 .data("i",i)
                 .data("j",j).addClass(i + '-' + j);
 
-
             numRows.append(numCols);
 
         }
@@ -33,19 +35,28 @@ minecraft.createGrid = function() {
 
 minecraft.drawBoard = function() {
     var rows = 20;
-    var limit = 2/3;
-    for (var i=rows; i>(limit*rows); i--) {
-        var row = $('div.rows').eq(i);
-        for (var j=0; j < row.children().length; j++) {
-            $( "div.rows" ).eq(i, j).addClass("dirt");
+    // var limit = 2/3;
+    for (var i=14; i<=rows ; i++) {
+        for (var j=0; j <= rows; j++) {
+            $("div").eq(i*rows + j).addClass("dirt");
 
 
         }
     }
-    for (var i = 274 ; i <290; i++) {
-        $("div").eq(i).addClass("grass");
-
-    }
+    //
+    //
+    // for (var i=14; i<21 ; i++) {
+    //     // var row = $('div.rows').eq(i);
+    //     for (var j=0; j < 20; j++) {
+    //         $("div").eq(i*20 + j).addClass("dirt");
+    //
+    //
+    //     }
+    // }
+    // for (var i = 275 ; i <295; i++) {
+    //     $("div").eq(i).addClass("grass");
+    //
+    // }
     //tree
     $("div").eq(269).addClass("tree");
     $("div").eq(248).addClass("tree");
@@ -61,9 +72,9 @@ minecraft.drawBoard = function() {
     $("div").eq(163).addClass("leaves");
 
     //rocks
-    $("div").eq(273).addClass("rock");
-    $("div").eq(267).addClass("rock");
-    $("div").eq(266).addClass("rock");
+    $("div").eq(273).addClass("rocks");
+    $("div").eq(267).addClass("rocks");
+    $("div").eq(266).addClass("rocks");
     //bush
 
     $("div").eq(257).addClass("leaves");
@@ -87,62 +98,59 @@ minecraft.drawBoard = function() {
     $("div").eq(133).addClass("cloud");
 
 };
-var currentTool = 0;
+// var currentTool = 0;
 minecraft.generateToolBar = function() {
     $("#axe").click(function () {
         console.log("clicked axe");
-        currentTool = 1;
-        console.log(currentTool);
+        minecraft.AXE = 1;
+        console.log("hello");
     });
     $("#pickAxe").click(function () {
         console.log("clicked pickaxe");
-        currentTool = 2;
-        console.log(currentTool);
+        minecraft.PICKAXE = 2;
+        console.log("hi");
     });
     $("#shovel").click(function () {
         console.log("clicked shovel");
-        currentTool = 3;
-        console.log(currentTool);
+        minecraft.SHOVEL = 3;
+        console.log("hola");
     });
     // makes divs selectable
-    $(".cols").click(minecraft.ifClicked);
+    $(".cols").click(minecraft.worldClicked);
 }
     //
     // $(".tree").click(function () {
     //     ()removeClass(".tree")
     //     (#block)addClass(".tree")
 
-minecraft.ifClicked = function() {
-    if (currentTool === 1) { //buggy in that you have to click on trunk of tree first
-        $(".tree").click(function () {
-            $(this).removeClass("tree")
-            $("#block").addClass("tree")
-            $(".leaves").click(function () {
-                $(this).removeClass("leaves")
-                $("#block").addClass("leaves")
-            })
-        })
+//if current tool is axe and tree is clicked on--- do this
+
+minecraft.worldClicked = function(e) {
+    if (minecraft.AXE === 1 && $(this).hasClass("tree")) {
+        $(this).removeClass("tree")
+        $("#block").addClass("tree")
+        }
+
+    if (minecraft.PICKAXE === 2 && $(this).hasClass("rocks")) {
+        $(this).removeClass("rocks")
+        $("#block").addClass("rocks")
     }
-    if (currentTool === 2) {
-        $(".rock").click(function () {
-            $(this).removeClass("rock")
-            $("#block").addClass("rock")
-        })
+    if (minecraft.SHOVEL === 3 && $(this).hasClass("dirt")) {
+        $(this).removeClass("dirt")
+        $("#block").addClass("dirt")
     }
-    if (currentTool === 3) {
-        $(".grass").click(function () { //add somewhere at i or j?
-            $(this).removeClass("grass")
-            $("#block").addClass("grass")
-        })
-    }
+
+    $("#block").click(function () {
+        console.log("hi");
+        //remove current class $(this).removeClass("current")
+        //add it to wherever is clicked on cols
+        // $(".cols").addClass(current); could do with if statements but that wouldnt be very efficient
+    })
+
+
+    //making it possible to move last placed material from block
+
 }
-
-
-        // if (divClicked.hasClass("tree")){ //and div with class tree is clicked (currentTool === 1) && (
-    //      //set background image to nothing
-    //     console.log("hi");
-    //     // $(".div").removeClass("tree"); //set background image to nothing
-    // }
 
 
 
@@ -152,6 +160,6 @@ $(document).ready(function () {
     minecraft.createGrid();
     minecraft.drawBoard();
     minecraft.generateToolBar();
-    minecraft.ifClicked();
+    minecraft.worldClicked();
 
 });
